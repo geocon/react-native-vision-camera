@@ -219,6 +219,7 @@ class PersistentCameraCaptureSession(private val cameraManager: CameraManager, p
 
   suspend fun focus(point: Point) {
     // Cancel any previous focus jobs
+    Log.i("Focus called22222222222")
     focusJob?.cancel()
     focusJob = null
 
@@ -254,9 +255,9 @@ class PersistentCameraCaptureSession(private val cameraManager: CameraManager, p
           return@launch
         }
         Log.i(TAG, "Resetting focus to auto-focus...")
-        repeatingRequest.createCaptureRequest(device, deviceDetails, outputs).also { request ->
-          session.setRepeatingRequest(request.build(), null, null)
-        }
+        // repeatingRequest.createCaptureRequest(device, deviceDetails, outputs).also { request ->
+        //   session.setRepeatingRequest(request.build(), null, null)
+        // }
       }
     }
   }
